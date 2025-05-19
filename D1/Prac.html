@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+    <style>
+      .center-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="dataHandeller.php" method="post" class="center-form">
+      <input type="text" name="name" placeholder="Enter your name" /><br />
+      <input type="email" name="email" placeholder="Enter your email" /><br />
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter your password"
+      /><br />
+      <hr />
+      <input type="submit" name="submit" value="Submit" /><br />
+      <input type="reset" value="Clear" />
+    </form>
+  </body>
+</html>
