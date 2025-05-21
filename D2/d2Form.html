@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>This is a form</h1>
+    <hr />
+    <h2>Inster Your Details</h2>
+    <form action="#">
+      <input id="name" type="text" placeholder="Enter your name" /><br />
+      <span id="nameError"></span>
+      <br />
+      <input id="email" type="email" placeholder="Enter your email" /><br />
+      <span id="emailError"></span>
+      <br />
+      <input
+        id="password"
+        type="password"
+        placeholder="Enter your password"
+      /><br />
+      <span id="passwordError"></span>
+      <br /><br />
+      <button onclick="validate()" type="submit">Submit</button>
+      <input type="reset" value="Clear" />
+    </form>
+    <hr />
+    <h2>Your Informations:</h2>
+    <fieldset>
+      <p id="nameInfo"></p>
+      <p id="emailInfo"></p>
+      <p id="passwordInfo"></p>
+    </fieldset>
+    <hr />
+
+    <fieldset id="PIS">
+      <legend>PIS WEBSITE</legend>
+    </fieldset>
+
+    <hr />
+
+    <script>
+      function validate(event) {
+        if (event) event.preventDefault();
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        var nameError = document.getElementById("nameError");
+        var emailError = document.getElementById("emailError");
+        var passwordError = document.getElementById("passwordError");
+
+        var div1 = document.getElementById("PIS");
+
+        nameError.innerHTML = "";
+        emailError.innerHTML = "";
+        passwordError.innerHTML = "";
+
+        nameError.style.color = "";
+        emailError.style.color = "";
+        passwordError.style.color = "";
+
+        div1.innerHTML = "";
+
+        var valid = true;
+
+        if (name == "") {
+          nameError.style.color = "red";
+          nameError.innerHTML = "Please enter your name";
+          valid = false;
+        }
+        if (email == "") {
+          emailError.style.color = "red";
+          emailError.innerHTML = "Please enter your email";
+          valid = false;
+        }
+        if (password == "") {
+          passwordError.style.color = "red";
+          passwordError.innerHTML = "Please enter your password";
+          valid = false;
+        }
+
+        if (valid) {
+          document.getElementById("nameInfo").innerHTML = "Name: " + name;
+          document.getElementById("emailInfo").innerHTML = "Email: " + email;
+          document.getElementById("passwordInfo").innerHTML =
+            "Password: " + password;
+
+          if (password == "f123") {
+            div1.innerHTML =
+              "<h2>Welcome to PIS</h2>" +
+              "<iframe src='https://www.proinfosysbd.com' frameborder='1' width='100%' height='200px' title='PIS Website'></iframe>";
+          }
+        }
+        return false;
+      }
+
+      document.querySelector("form").onsubmit = validate;
+    </script>
+  </body>
+</html>
