@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>
+        <h1>Login</h1>
+      </legend>
+      <form action="#">
+        <input id="name" type="text" placeholder="Enter your name" /><br />
+        <span id="nameError"></span>
+        <br />
+        <input id="email" type="email" placeholder="Enter your email" /><br />
+        <span id="emailError"></span>
+        <br />
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your password"
+        /><br />
+        <span id="passwordError"></span>
+        <br /><br />
+        <button onclick="validate()" type="submit">Submit</button>
+        <input type="reset" value="Clear" />
+      </form>
+    </fieldset>
+    <fieldset id="logged" style="display: none">
+      <legend>Assuming Home Page if Login is successful</legend>
+    </fieldset>
+    <script>
+      function validate(event) {
+        if (event) event.preventDefault();
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var nameError = document.getElementById("nameError");
+        var emailError = document.getElementById("emailError");
+        var passwordError = document.getElementById("passwordError");
+        var loggedField = document.getElementById("logged");
+
+        // Clear previous errors
+        nameError.innerText = "";
+        emailError.innerText = "";
+        passwordError.innerText = "";
+        nameError.style.color = "";
+        emailError.style.color = "";
+        passwordError.style.color = "";
+        loggedField.style.display = "none";
+        loggedField.innerHTML =
+          "<legend>Assuming Home Page if Login is successful</legend>";
+
+        var isValid = true;
+
+        // Name validation
+        if (name === "") {
+          nameError.innerText = "Name is required";
+          nameError.style.color = "red";
+          isValid = false;
+        } else if (!isNaN(name)) {
+          nameError.innerText = "Name must be a string";
+          nameError.style.color = "red";
+          isValid = false;
+        } else {
+          nameError.innerText = "Name is valid";
+          nameError.style.color = "green";
+        }
+
+        // Email validation
+        if (email === "") {
+          emailError.innerText = "Email is required";
+          emailError.style.color = "red";
+          isValid = false;
+        } else if (!email.includes("@")) {
+          emailError.innerText = "Email must contain '@'";
+          emailError.style.color = "red";
+          isValid = false;
+        } else if (email.length < 5) {
+          emailError.innerText = "Email must be at least 5 characters long";
+          emailError.style.color = "red";
+          isValid = false;
+        } else {
+          emailError.innerText = "Email is valid";
+          emailError.style.color = "green";
+        }
+
+        // Password validation
+        if (password === "") {
+          passwordError.innerText = "Password is required";
+          passwordError.style.color = "red";
+          isValid = false;
+        } else {
+          passwordError.innerText = "Password is valid";
+          passwordError.style.color = "green";
+        }
+
+        if (isValid) {
+          if (
+            name == "Fardin" &&
+            email == "fardinkenway7560@gmail.com" &&
+            password == "f123"
+          ) {
+            loggedField.style.display = "block";
+            loggedField.innerHTML =
+              "<legend>Assuming Home Page if Login is successful</legend>" +
+              "<iframe src='https://www.youtube.com/embed/Zv9PcTG7mAc' frameborder='1' width='100%' height='700px' title='Fardin LinkedIn' allowfullscreen></iframe>";
+          } else {
+            loggedField.style.display = "block";
+            loggedField.innerHTML =
+              "<legend>Assuming Home Page if Login is successful</legend>" +
+              "<span style='color:red;'>Invalid credentials. Please try again.</span>";
+          }
+        }
+
+        return false;
+      }
+
+      document.querySelector("form").onsubmit = validate;
+    </script>
+  </body>
+</html>
