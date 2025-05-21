@@ -41,6 +41,15 @@
 
     <hr />
 
+    <h2>
+      If you're boared, No worries! <br />
+      here is youtube for you to enjoy
+    </h2>
+    <button id="YT" onclick="showYT()"">
+      Click here to activate
+      <mark style="color: cornsilk; background-color: #ff0000">YouTube</mark>
+    </button>
+
     <script>
       function validate(event) {
         if (event) event.preventDefault();
@@ -92,10 +101,15 @@
           if (password == "f123") {
             div1.innerHTML =
               "<h2>Welcome to PIS</h2>" +
-              "<iframe src='https://www.proinfosysbd.com' frameborder='1' width='100%' height='200px' title='PIS Website'></iframe>";
+              "<iframe src='https://www.proinfosysbd.com' frameborder='1' width='100%' height='700px' title='PIS Website'></iframe>";
           }
         }
         return false;
+      }
+      function showYT() {
+        var ytDiv = document.getElementById("PIS");
+        ytDiv.innerHTML =
+          "<iframe width='100%' height='500px' src='https://www.youtube.com/embed/VUvqDKxbjmo?start=224' frameborder='1' allowfullscreen></iframe>";
       }
 
       document.querySelector("form").onsubmit = validate;
