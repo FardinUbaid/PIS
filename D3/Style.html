@@ -3,11 +3,117 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        background-color: rgb(57, 62, 63);
+      }
+
+      h1 {
+        color: rgb(0, 255, 174);
+        text-align: center;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      p {
+        font-size: 20px;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding-bottom: 5px;
+      }
+
+      .d1 {
+        background-color: rgb(0, 255, 174);
+        padding: 10px;
+        display: block;
+      }
+
+      .d2 {
+        background-color: rgb(0, 255, 174);
+        padding: 10px;
+        display: block;
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      button {
+        background-color: rgb(0, 204, 255);
+        color: white;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      input[type="submit"] {
+        background-color: rgb(255, 0, 102);
+        color: white;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+
     <title>Style Prac</title>
   </head>
   <body>
     <h1>This is a heading</h1>
     <p style="background-color: blue; color: white">This is Fardin Abu Ubaid</p>
     <p style="background-color: red; color: white">This is a paragraph</p>
+
+    <div class="d1">
+      <h1>First div</h1>
+      <p>
+        Lorem ipsum,<tt><del> dolor </del></tt> sit amet consectetur adipisicing
+        elit. Rerum, explicabo sit magni repellendus earum corporis modi nemo
+        officia voluptatem cupiditate dolorem? Impedit, vitae consectetur ea
+        dignissimos exercitationem accusantium! Quia, assumenda!
+      </p>
+    </div>
+    <hr />
+    <button onclick="showform()">Log Into the system</button>
+    <div class="d2" style="display: none">
+      <form action="#" onsubmit="return login()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" /><br /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" /><br /><br />
+        <input type="submit" value="Login" />
+      </form>
+      <fieldset id="logged" style="display: none">
+        <legend>welcome</legend>
+      </fieldset>
+    </div>
+    <script>
+      function showform() {
+        var x = document.querySelector(".d2");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+
+      function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username === "fardin" && password === "f123") {
+          var logged = document.getElementById("logged");
+          logged.style.display = "block";
+          logged.innerHTML =
+            "<iframe src='https://www.youtube.com/embed/VUvqDKxbjmo?start=224' frameborder='1' width='100%' height='500px'> </iframe>";
+        } else {
+          alert("Invalid username or password.");
+        }
+        return false;
+      }
+    </script>
   </body>
 </html>
