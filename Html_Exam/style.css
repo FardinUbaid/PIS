@@ -1,0 +1,199 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  margin: 10px 0;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* --- Navigation Bar --- */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 20px;
+}
+nav a {
+  color: #007bff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+nav a:hover {
+  background: #e6f0ff;
+  color: #0056b3;
+}
+
+/* --- Section Headings --- */
+section h1,
+section h2,
+legend {
+  color: #007bff;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* --- Image and Video Section --- */
+section#image img {
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+}
+section#video video {
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 100%;
+}
+
+/* --- Contact Form --- */
+fieldset {
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  padding: 24px 32px;
+  background: #f9f9ff;
+  max-width: 500px;
+  margin: 0 auto;
+}
+label {
+  font-weight: 500;
+  color: #333;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 16px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+button,
+input[type="reset"] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button {
+  background: #007bff;
+  color: #fff;
+  margin-right: 10px;
+}
+button:hover {
+  background: #0056b3;
+}
+input[type="reset"] {
+  background: #f4f4f4;
+  color: #333;
+  border: 1px solid #ccc;
+}
+input[type="reset"]:hover {
+  background: #e0e0e0;
+}
+
+/* --- Table in Form --- */
+form table {
+  margin: 0 auto;
+}
+form td {
+  padding: 0 8px;
+}
+
+/* --- Footer --- */
+footer {
+  background: #f4f4f4;
+  padding: 16px 0;
+  margin-top: 40px;
+  border-radius: 0 0 8px 8px;
+}
+footer p {
+  color: #666;
+  margin: 4px 0;
+  font-size: 1rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 700px) {
+  fieldset {
+    padding: 12px 6px;
+    max-width: 100%;
+  }
+  section#image img,
+  section#video video {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
