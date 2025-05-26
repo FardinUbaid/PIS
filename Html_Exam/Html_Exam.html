@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hands on Test on Html</title>
+  </head>
+  <header>
+    <center>
+      <h1>Hands On Test On Html</h1>
+      <hr />
+      <nav>
+        <pre>         
+        <a href="#image">Image Section</a>    <a href="#video">Video Section</a>   <a href="#Contact">Contact Form</a>   
+        </pre>
+      </nav>
+    </center>
+  </header>
+  <hr />
+  <body>
+    <center>
+      <h1>Image Section</h1>
+      <section id="image">
+        <a href="mailto:fardinkenway7560@gmail.com">
+          <img
+            src="https://images.unsplash.com/photo-1593108408993-58ee9c7825c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+            alt="Image did not load!"
+            width="900"
+            height="600"
+          />
+        </a>
+      </section>
+      <hr />
+      <section id="video">
+        <h2>Video Section</h2>
+        <video
+          controls
+          width="800px"
+          poster="https://assets.codepen.io/32795/poster.png"
+        >
+          <source
+            src="http://media.w3.org/2010/05/sintel/trailer.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="http://media.w3.org/2010/05/sintel/trailer.webm"
+            type="video/webm"
+          />
+          <source
+            src="http://media.w3.org/2010/05/sintel/trailer.ogv"
+            type="video/ogg"
+          />
+          <track
+            src="subtitles_en.vtt"
+            kind="subtitles"
+            srclang="en"
+            label="English"
+            default
+          />
+          <track
+            src="subtitles_de.vtt"
+            kind="subtitles"
+            srclang="de"
+            label="Deutsch"
+          />
+        </video>
+      </section>
+      <hr />
+      <section id="Contact">
+        <fieldset>
+          <legend>Contact Form</legend>
+          <form action="#">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your name"
+            />
+            <br /><br />
+
+            <label for="phone">Phone:</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              format="+880XXXXXXXXXX"
+              placeholder="+880XXXXXXXXXX"
+            />
+            <br /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+            <br /><br />
+
+            <label for="country">Select your country:</label>
+            <select name="country" id="country">
+              <option value="none" default>None</option>
+              <option value="bangladesh">Bangladesh</option>
+              <option value="india">India</option>
+              <option value="pakistan">Pakistan</option>
+              <option value="nepal">Nepal</option>
+              <option value="sri_lanka">Sri Lanka</option>
+              <option value="maldives">Maldives</option>
+              <option value="bhutan">Bhutan</option>
+              <option value="afghanistan">Afghanistan</option>
+              <option value="australia">Australia</option>
+              <option value="spain">spain</option>
+            </select>
+            <br /><br />
+
+            <label for="state">Select your state:</label>
+            <select name="state" id="state">
+              <option value="none" default>None</option>
+              <option value="Bogura">Bogura</option>
+              <option value="dhaka">Dhaka</option>
+              <option value="rajshahi">Rajshahi</option>
+              <option value="khulna">Khulna</option>
+              <option value="chittagong">Chittagong</option>
+              <option value="barisal">Barisal</option>
+              <option value="sylhet">Sylhet</option>
+              <option value="rangpur">Rangpur</option>
+              <option value="mymensingh">Mymensingh</option>
+              <option value="comilla">Comilla</option>
+            </select>
+            <br /><br />
+
+            <label for="message">Message:</label><br />
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Enter your message here"
+            >
+            </textarea>
+            <br /><br />
+            <table>
+              <tr>
+                <td><button>Submit</button></td>
+                <td><input type="reset" name="reset" /></td>
+              </tr>
+            </table>
+          </form>
+        </fieldset>
+      </section>
+    </center>
+  </body>
+</html>
