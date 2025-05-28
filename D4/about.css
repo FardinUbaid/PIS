@@ -149,3 +149,61 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+.about-details {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(102, 126, 234, 0.08);
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  padding: 2rem 2.5rem;
+}
+
+.about-details h3 {
+  color: #764ba2;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.about-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.about-details ul li {
+  background: #f3f6fd;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.about-details ul li:hover {
+  background: #e0eafc;
+}
+
+.about-details p {
+  color: #444;
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+}
+
+.intro h2 {
+  color: #667eea;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.7;
+}
