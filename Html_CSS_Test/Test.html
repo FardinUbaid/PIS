@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #e5e7eb;
+        color: #23272f;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header-logo {
+        width: 100%;
+        background: #fff;
+        padding: 16px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .header-logo img {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        margin-left: 32px;
+        /* border: 2px solid #4d5052; */
+        background: #e9ecef;
+        object-fit: cover;
+        scale: 1.7;
+      }
+      .header-main {
+        width: 100%;
+        background: #2c2c2c;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        padding: 0 32px 0 32px;
+        box-sizing: border-box;
+      }
+      .profile-pic {
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+      .profile-pic img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid #404243;
+        background: #e9ecef;
+        object-fit: cover;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 32px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        flex: 1;
+        min-width: 200px;
+      }
+      .profile-info h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: #dee2e7;
+      }
+      .profile-info .title {
+        margin: 8px 0 16px 0;
+        color: #dee2e7;
+        font-size: 1.1rem;
+      }
+      .social-links {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .social-links a {
+        color: #007bff;
+        background: #f4f6fa;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid #414244;
+        transition: background 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .social-links img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        margin-right: 4px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .cv-btn button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-left: 10px;
+      }
+      .cv-btn button:hover {
+        background: #0056b3;
+      }
+      .member-info {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        color: #888;
+        font-size: 1rem;
+        text-align: right;
+      }
+
+      nav {
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      nav ul {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 32px;
+      }
+      nav li a {
+        color: #2d3e50;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 12px 0;
+        display: inline-block;
+        transition: color 0.2s;
+      }
+      nav li a:hover {
+        color: #007bff;
+      }
+
+      .main-content-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 32px;
+        gap: 32px;
+        align-items: flex-start;
+      }
+      .main-left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .summary-section {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        padding: 18px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px 32px;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+      .summary-section .summary {
+        flex: 1 1 28%;
+        min-width: 180px;
+        background: #f4f6fa;
+        border-radius: 8px;
+        padding: 16px 12px;
+        box-sizing: border-box;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .summary-section .summary-title {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #007bff;
+        font-size: 1.1rem;
+      }
+      .summary-section .summary-text {
+        color: #444;
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+      .objectives,
+      .education,
+      .pro-skills,
+      .send-message {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        padding: 18px 24px;
+      }
+      .objectives h2,
+      .education h2,
+      .pro-skills h2 {
+        color: #007bff;
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+      }
+      .objectives p {
+        margin: 0 0 12px 0;
+        color: #444;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+      .education dl {
+        margin: 0;
+      }
+      .education dt {
+        font-weight: bold;
+        margin-top: 16px;
+        font-size: 1.08rem;
+        color: #2d3e50;
+      }
+      .education dd {
+        margin-left: 0;
+        margin-bottom: 2px;
+        color: #444;
+        font-size: 1rem;
+      }
+      .pro-skills-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .skill-bar-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .skill-bar-label {
+        width: 120px;
+        font-weight: bold;
+        color: #23272f;
+        font-size: 1rem;
+      }
+      .skill-bar {
+        flex: 1;
+        height: 14px;
+        background: #f0f0f0;
+        border-radius: 7px;
+        overflow: hidden;
+        margin-right: 8px;
+      }
+      .skill-bar-fill {
+        height: 100%;
+        background: #22c55e;
+        border-radius: 7px;
+        transition: width 0.4s;
+      }
+      .main-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .send-message {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        padding: 18px 24px;
+        font-size: 1.1rem;
+      }
+      .send-message label {
+        font-weight: bold;
+        color: #007bff;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .send-message textarea {
+        width: 100%;
+        min-height: 60px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 12px;
+        padding: 8px;
+        font-size: 1rem;
+        resize: vertical;
+      }
+      .send-message button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .send-message button:hover {
+        background: #0056b3;
+      }
+
+      footer {
+        background: #2c2c2c;
+        border-top: 1px solid #e0e0e0;
+        padding: 32px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 32px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: auto;
+      }
+      .footer-section {
+        flex: 1;
+        padding: 0 32px;
+      }
+      .newsletter label {
+        font-weight: bold;
+        color: #007bff;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .newsletter input[type="email"] {
+        width: 70%;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .newsletter button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .newsletter button:hover {
+        background: #0056b3;
+      }
+      .faq h3,
+      .contact h3 {
+        color: #007bff;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+      }
+      .faq ul {
+        padding-left: 18px;
+        margin: 0;
+        color: #dfd4d4;
+        font-size: 1rem;
+      }
+      .faq li {
+        margin-bottom: 8px;
+        text-decoration: none;
+      }
+      .faq li a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .faq li a:hover {
+        text-decoration: underline;
+      }
+      .contact p {
+        margin: 0 0 8px 0;
+        color: #dfd4d4;
+        font-size: 1rem;
+      }
+      .contact .media-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+      }
+      .contact .media-links img {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        background: #e6f0ff;
+        border: 1px solid #007bff;
+        object-fit: cover;
+      }
+
+      @media (max-width: 1100px) {
+        .main-content-row {
+          flex-direction: column;
+          gap: 24px;
+          padding: 24px;
+        }
+        .main-right {
+          width: 100%;
+        }
+        .main-left {
+          width: 100%;
+        }
+        footer {
+          flex-direction: column;
+          gap: 24px;
+          padding: 24px 0;
+        }
+        .footer-section {
+          padding: 0 24px;
+        }
+      }
+      @media (max-width: 900px) {
+        .summary-section {
+          gap: 16px 12px;
+        }
+        .summary-section .summary {
+          min-width: 140px;
+          font-size: 0.98rem;
+          padding: 12px 8px;
+        }
+      }
+      @media (max-width: 700px) {
+        .header-main {
+          flex-direction: column;
+          padding: 0 12px;
+        }
+        .profile-info {
+          margin-left: 0;
+          margin-top: 16px;
+          margin-bottom: 16px;
+        }
+        .member-info {
+          position: static;
+          margin-top: 12px;
+          text-align: left;
+        }
+        nav ul {
+          gap: 10px;
+          padding-left: 12px;
+          flex-wrap: wrap;
+        }
+        .main-content-row {
+          padding: 8px;
+        }
+        .footer-section {
+          padding: 0 8px;
+        }
+        .summary-section {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 10px;
+          padding: 10px 4px;
+        }
+        .summary-section .summary {
+          flex: 1 1 45%;
+          min-width: 120px;
+          padding: 10px 6px;
+          font-size: 0.95rem;
+        }
+      }
+      @media (max-width: 500px) {
+        .summary-section {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .summary-section .summary {
+          flex: 1 1 100%;
+          min-width: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-logo">
+      <img src="PIS.jpeg" alt="Logo" />
+    </div>
+
+    <div class="header-main">
+      <div class="profile-pic">
+        <img src="Fardin Abu Ubaid.jpg" alt="Fardin Abu Ubaid" />
+      </div>
+      <div class="profile-info">
+        <h1>Fardin Abu Ubaid</h1>
+        <div class="title">Aspiring Software Engineer</div>
+        <div class="social-links">
+          <a href="https://github.com/FardinUbaid" target="_blank">
+            <img src="github-logo.png" alt="github Icon" />
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/fardin-abu-ubaid-b65745283/"
+            target="_blank"
+          >
+            <img src="linkedin.png" alt="LinkedIn Icon" />
+            LinkedIn
+          </a>
+          <a
+            href="https://www.facebook.com/fardin.abu.ubaid.2024/"
+            target="_blank"
+          >
+            <img src="FB.png" alt="Facebook Icon" />
+            Facebook
+          </a>
+          <span class="cv-btn"><button>Download CV</button></span>
+        </div>
+      </div>
+      <div class="member-info">
+        <p>⨀ Member Since: May 15, 2025</p>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#edu">Education</a></li>
+        <li><a href="#">WorkExperience</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#ps">Professional Skills</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Awards</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content-row">
+      <div class="main-left">
+        <div class="summary-section">
+          <div class="summary">
+            <div class="summary-title">Experience</div>
+            <div class="summary-text">0-2 years</div>
+          </div>
+          <div class="summary">
+            <div class="summary-title">Age</div>
+            <div class="summary-text">19 - 23 years</div>
+          </div>
+          <div class="summary">
+            <div class="summary-title">Current Salary</div>
+            <div class="summary-text">0k - 5k</div>
+          </div>
+          <div class="summary">
+            <div class="summary-title">Expected Salary</div>
+            <div class="summary-text">30k - 35k</div>
+          </div>
+          <div class="summary">
+            <div class="summary-title">Languages</div>
+            <div class="summary-text">Bangali <br />English</div>
+          </div>
+          <div class="summary">
+            <div class="summary-title">Education Levels</div>
+            <div class="summary-text">Certificated</div>
+          </div>
+        </div>
+        <div class="objectives">
+          <h2>Objectives</h2>
+          <p>
+            To work in a challenging environment that encourages continuous
+            learning and creativity, where I can effectively contribute my
+            skills as a Software Engineer, possessing competent technical
+            skills.
+          </p>
+        </div>
+        <div class="education" id="edu">
+          <h2>Education</h2>
+          <dl>
+            <dt><b>SSC</b> <tt>2015</tt></dt>
+            <dd>Armed Police Batelion Public School & College</dd>
+            <dd>CGPA: 5.00</dd>
+            <dt><b>HSC</b> <tt>2019</tt></dt>
+            <dd>Biam Model School & College</dd>
+            <dd>CGPA: 5.00</dd>
+            <dt><b>BSc Cse</b> <tt>2025</tt></dt>
+            <dd>American International University Bangladesh</dd>
+            <dd>CGPA: 4.43</dd>
+          </dl>
+        </div>
+        <div class="pro-skills" id="ps">
+          <h2>Professional Skills</h2>
+          <div class="pro-skills-list">
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">HTML5</span>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">CSS3</span>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">PHP</span>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">MySQL</span>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Git</span>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="skill-bar-row">
+              <span class="skill-bar-label">Bootstrap</span>
+              <div class="skill-bar">
+                <div class="skill-bar-fill" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-right">
+        <div class="send-message">
+          <label for="msg">Send a Message</label>
+          <textarea id="msg" placeholder="Type your message here..."></textarea>
+          <button>Send</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-section newsletter">
+        <label for="newsletter-email">Newsletter</label>
+        <input type="email" id="newsletter-email" placeholder="Your email" />
+        <button>Subscribe</button>
+      </div>
+      <div class="footer-section faq">
+        <h3>FAQ</h3>
+        <ul>
+          <li>
+            <a href="#">How to contact?</a>
+          </li>
+          <li>
+            <a href="#">How to download CV?</a>
+          </li>
+          <li>
+            <a href="#">How to see portfolio?</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contact</h3>
+        <p>Nikunja 2,Khilkhet, Dhaka, Bangladesh</p>
+        <p>
+          <a
+            href="mailto:fardinkenway7560@gmail.com"
+            style="text-decoration: none; color: #dfd4d4"
+            >Email: fardinkenway7560@gmail.com</a
+          >
+        </p>
+        <div class="media-links">
+          <a href="https://github.com/FardinUbaid" target="_blank"
+            ><img src="github-logo.png" alt="GitHub"
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/fardin-abu-ubaid-b65745283/"
+            target="_blank"
+            ><img src="linkedin.png" alt="LinkedIn"
+          /></a>
+          <a
+            href="https://www.facebook.com/fardin.abu.ubaid.2024/"
+            target="_blank"
+            ><img src="FB.png" alt="Facebook"
+          /></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
