@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #011526;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: #262d34;
+  padding: 30px 40px 40px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+header,
+footer {
+  background: #30588c;
+  color: #eee;
+  padding: 20px 0;
+  text-align: center;
+}
+h2 {
+  margin-top: 0;
+}
+form {
+  margin-top: 30px;
+}
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+input,
+textarea {
+  width: 70%;
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+input.error,
+textarea.error {
+  border: 2px solid #bf3952;
+}
+.error-message {
+  color: #bf3952;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 36px;
+}
+button {
+  background: #6093bf;
+  color: #011526;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+.progress-bar-container {
+  width: 100%;
+  background: #eee;
+  border-radius: 4px;
+  margin: 20px 0 10px 0;
+  height: 18px;
+  display: none;
+}
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #bf3952 0%, #fa6b85 100%);
+  border-radius: 4px;
+  transition: width 0.4s;
+  animation: progress-anim 1.2s linear infinite;
+}
+@keyframes progress-anim {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+.message {
+  margin-top: 18px;
+  font-size: 17px;
+  font-weight: bold;
+}
+.message.success {
+  color: #27ae60;
+}
+.message.error {
+  color: #bf3952;
+}
