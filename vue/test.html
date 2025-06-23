@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Test</title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      {{ msg }}
+
+      <input v-model="msg" placeholder="Type something..." />
+      <hr />
+      <button @click="Toggle">Toggle</button>
+      <div id="box" v-cloak v-show="isVisible"></div>
+      <hr />
+      <input @keyup.enter="Greet(msg + ' You did it man!')" v-model="msg" />
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      let app = Vue.createApp({
+        data: function () {
+          return {
+            msg: "Hello",
+            isVisible: false,
+          };
+        },
+        methods: {
+          Toggle() {
+            this.isVisible = !this.isVisible;
+          },
+          Greet(msg) {
+            console.log(msg);
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
